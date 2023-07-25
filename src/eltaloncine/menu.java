@@ -360,8 +360,12 @@ public class menu extends javax.swing.JFrame {
     private void btnEstrenoIngresosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstrenoIngresosActionPerformed
         // TODO add your handling code here:
         double ingresos = estrenos.getIngresoSala();
-        
-        JOptionPane.showMessageDialog(null, "Los ingresos de la sala son de: $" + ingresos);
+
+        // Formatear el mensaje para mostrar los ingresos con dos decimales y el símbolo de dólar
+        String mensaje = String.format("Los ingresos de la sala son de: $%.2f", ingresos);
+
+        // Mostrar el mensaje formateado en un cuadro de diálogo
+        JOptionPane.showMessageDialog(null, mensaje);
     }//GEN-LAST:event_btnEstrenoIngresosActionPerformed
 
     private void btnEstrenoOcupacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstrenoOcupacionActionPerformed
@@ -382,7 +386,11 @@ public class menu extends javax.swing.JFrame {
         // TODO add your handling code here:
         double ingresos = clasicos.getIngresoSala();
         
-        JOptionPane.showMessageDialog(null, "Los ingresos de la sala son de: $" + ingresos);
+        // Formatear el mensaje para mostrar los ingresos con dos decimales y el símbolo de dólar
+        String mensaje = String.format("Los ingresos de la sala son de: $%.2f", ingresos);
+
+        // Mostrar el mensaje formateado en un cuadro de diálogo
+        JOptionPane.showMessageDialog(null, mensaje);
     }//GEN-LAST:event_btnClasicoIngresosActionPerformed
 
     private void btnIngresosTotalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresosTotalesActionPerformed
