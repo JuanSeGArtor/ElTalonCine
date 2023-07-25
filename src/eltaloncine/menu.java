@@ -311,12 +311,20 @@ public class menu extends javax.swing.JFrame {
 
     private void btnEstrenoVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstrenoVenderActionPerformed
         // TODO add your handling code here:
-        estrenos.venderEntrada();
+        if(estrenos.getTituloPelicula().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar el nombre de la película primero");
+        } else {
+            estrenos.venderEntrada();
+        }
     }//GEN-LAST:event_btnEstrenoVenderActionPerformed
 
     private void btnClasicoVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClasicoVenderActionPerformed
         // TODO add your handling code here:
-        clasicos.venderEntrada();
+        if(clasicos.getTituloPelicula().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar el nombre de la película primero");
+        } else {
+            clasicos.venderEntrada();
+        }
     }//GEN-LAST:event_btnClasicoVenderActionPerformed
 
     private void btnEstrenoCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstrenoCambiarActionPerformed
@@ -333,9 +341,11 @@ public class menu extends javax.swing.JFrame {
 
     private void btnEstrenoVaciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstrenoVaciarActionPerformed
         // TODO add your handling code here:
-        estrenos.vaciarSala();
-        
-        txtFieldEstreno.setText("");
+        if (!estrenos.getTituloPelicula().isEmpty()) {
+            estrenos.vaciarSala();
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe ingresar el nombre de la película primero.");
+        }
     }//GEN-LAST:event_btnEstrenoVaciarActionPerformed
 
     private void btnClasicoCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClasicoCambiarActionPerformed
@@ -352,45 +362,61 @@ public class menu extends javax.swing.JFrame {
 
     private void btnClasicoVaciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClasicoVaciarActionPerformed
         // TODO add your handling code here:
-        clasicos.vaciarSala();
-        
-        txtFieldClasico.setText("");
+        if (!clasicos.getTituloPelicula().isEmpty()) {
+            clasicos.vaciarSala();
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe ingresar el nombre de la película primero.");
+        }
     }//GEN-LAST:event_btnClasicoVaciarActionPerformed
 
     private void btnEstrenoIngresosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstrenoIngresosActionPerformed
         // TODO add your handling code here:
-        double ingresos = estrenos.getIngresoSala();
+        if (!estrenos.getTituloPelicula().isEmpty()) {
+            double ingresos = estrenos.getIngresoSala();
 
-        // Formatear el mensaje para mostrar los ingresos con dos decimales y el símbolo de dólar
-        String mensaje = String.format("Los ingresos de la sala son de: $%.2f", ingresos);
+            // Formatear el mensaje para mostrar los ingresos con dos decimales y el símbolo de dólar
+            String mensaje = String.format("Los ingresos de la sala son de: $%.2f", ingresos);
 
-        // Mostrar el mensaje formateado en un cuadro de diálogo
-        JOptionPane.showMessageDialog(null, mensaje);
+            // Mostrar el mensaje formateado en un cuadro de diálogo
+            JOptionPane.showMessageDialog(null, mensaje);
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe ingresar el nombre de la película primero.");
+        }
     }//GEN-LAST:event_btnEstrenoIngresosActionPerformed
 
     private void btnEstrenoOcupacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEstrenoOcupacionActionPerformed
         // TODO add your handling code here:
-        int ocupacion = estrenos.getSillasLibres();
-        
-        JOptionPane.showMessageDialog(null, "La cantidad de sillas ocupadas es de: " + ocupacion);
+        if (!estrenos.getTituloPelicula().isEmpty()) {
+            int ocupacion = estrenos.getSillasOcupadas();
+            JOptionPane.showMessageDialog(null, "La cantidad de sillas ocupadas es de: " + ocupacion);
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe ingresar el nombre de la película primero.");
+        }
     }//GEN-LAST:event_btnEstrenoOcupacionActionPerformed
 
     private void btnClasicoOcupacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClasicoOcupacionActionPerformed
         // TODO add your handling code here:
-        int ocupacion = clasicos.getSillasLibres();
-        
-        JOptionPane.showMessageDialog(null, "La cantidad de sillas ocupadas es de: " + ocupacion);
+        if (!clasicos.getTituloPelicula().isEmpty()) {
+            int ocupacion = clasicos.getSillasOcupadas();
+            JOptionPane.showMessageDialog(null, "La cantidad de sillas ocupadas es de: " + ocupacion);
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe ingresar el nombre de la película primero.");
+        }
     }//GEN-LAST:event_btnClasicoOcupacionActionPerformed
 
     private void btnClasicoIngresosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClasicoIngresosActionPerformed
         // TODO add your handling code here:
-        double ingresos = clasicos.getIngresoSala();
-        
-        // Formatear el mensaje para mostrar los ingresos con dos decimales y el símbolo de dólar
-        String mensaje = String.format("Los ingresos de la sala son de: $%.2f", ingresos);
+        if (!clasicos.getTituloPelicula().isEmpty()) {
+            double ingresos = clasicos.getIngresoSala();
 
-        // Mostrar el mensaje formateado en un cuadro de diálogo
-        JOptionPane.showMessageDialog(null, mensaje);
+            // Formatear el mensaje para mostrar los ingresos con dos decimales y el símbolo de dólar
+            String mensaje = String.format("Los ingresos de la sala son de: $%.2f", ingresos);
+
+            // Mostrar el mensaje formateado en un cuadro de diálogo
+            JOptionPane.showMessageDialog(null, mensaje);
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe ingresar el nombre de la película primero.");
+        }
     }//GEN-LAST:event_btnClasicoIngresosActionPerformed
 
     private void btnIngresosTotalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresosTotalesActionPerformed
