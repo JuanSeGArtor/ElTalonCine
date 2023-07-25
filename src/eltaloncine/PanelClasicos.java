@@ -4,23 +4,32 @@
  */
 package eltaloncine;
 import javax.swing.JOptionPane;
-import org.w3c.dom.Text;
 
 /**
  *
  * @author SENA
  */
-public class clasicos extends javax.swing.JFrame {
+public class PanelClasicos extends javax.swing.JFrame {
 
-    eltaloncine clasicos;
+    ElTalonCine clasicos;
     
-    public clasicos() {
+    public PanelClasicos() {
         initComponents();
         
-        clasicos = new eltaloncine();
+        clasicos = new ElTalonCine();
     
         clasicos.setAforo(100);
         clasicos.setEntrada(25000);
+    }
+    
+    // Método para actualizar la información de ingresos totales
+    public void actualizarInfoSala() {
+        double ingresos = clasicos.getIngresoSala();
+
+        String mensaje = String.format("<html><h2>Ingresos de Estrenos</h2>"
+                + "Ingresos de la sala: $%.2f</html>", ingresos);
+
+        txtFieldIngresosClasicos.setText(mensaje);
     }
 
     /**
@@ -43,6 +52,7 @@ public class clasicos extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        txtFieldIngresosClasicos = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -141,6 +151,9 @@ public class clasicos extends javax.swing.JFrame {
             }
         });
 
+        txtFieldIngresosClasicos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtFieldIngresosClasicos.setEnabled(false);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -161,15 +174,17 @@ public class clasicos extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(txtFieldClasico, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
                                             .addGap(121, 121, 121)
                                             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                                    .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                        .addComponent(txtFieldClasico, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(txtFieldIngresosClasicos, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                    .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE))))))
                                 .addGap(190, 190, 190)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -194,7 +209,9 @@ public class clasicos extends javax.swing.JFrame {
                     .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(98, 98, 98)
                 .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 146, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(txtFieldIngresosClasicos, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -259,9 +276,10 @@ public class clasicos extends javax.swing.JFrame {
         if(res == 0){
             this.setVisible(false);
         
-            estrenos m = new estrenos();
+            PanelEstrenos m = new PanelEstrenos();
             m.setVisible(true);
-        }        }    }//GEN-LAST:event_btnVistaEstrenosActionPerformed
+        }    
+    }//GEN-LAST:event_btnVistaEstrenosActionPerformed
 
     private void btnVistaMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVistaMenuActionPerformed
         // Para inicializar otro JFrame que tengas previamente creado como una Clase....
@@ -270,8 +288,10 @@ public class clasicos extends javax.swing.JFrame {
         if(res == 0){
             this.setVisible(false);
         
-            Estrenos m = new Estrenos();
-            m.setVisible(true);    }//GEN-LAST:event_btnVistaMenuActionPerformed
+            PanelEstrenos m = new PanelEstrenos();
+            m.setVisible(true);    
+        }
+    }//GEN-LAST:event_btnVistaMenuActionPerformed
 
     /**
      * @param args the command line arguments
@@ -290,13 +310,13 @@ public class clasicos extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Clasicos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PanelClasicos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Clasicos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PanelClasicos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Clasicos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PanelClasicos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Clasicos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(PanelClasicos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
         //</editor-fold>
@@ -304,7 +324,7 @@ public class clasicos extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Clasicos().setVisible(true);
+                new PanelClasicos().setVisible(true);
             }
         });
     }
@@ -321,5 +341,6 @@ public class clasicos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField txtFieldClasico;
+    private javax.swing.JLabel txtFieldIngresosClasicos;
     // End of variables declaration//GEN-END:variables
 }
