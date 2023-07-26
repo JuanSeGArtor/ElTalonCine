@@ -16,8 +16,6 @@ public class ElTalonCine extends JFrame {
     private double precioEntrada;
 
     public ElTalonCine() {
-        initComponents();
-
         // Inicializar los datos del cine
         aforo = 100;
         sillasOcupadas = 0;
