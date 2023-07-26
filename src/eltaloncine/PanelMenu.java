@@ -49,7 +49,6 @@ public class PanelMenu extends javax.swing.JFrame {
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setForeground(new java.awt.Color(153, 102, 0));
         setPreferredSize(new java.awt.Dimension(1320, 1400));
-        setResizable(false);
         setSize(new java.awt.Dimension(1320, 1400));
 
         menu.setBackground(new java.awt.Color(255, 255, 204));
