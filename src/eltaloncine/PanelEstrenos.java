@@ -21,16 +21,6 @@ public class PanelEstrenos extends javax.swing.JFrame {
         estrenos.setAforo(100);
         estrenos.setEntrada(25000);
     }
-    
-    // Método para actualizar la información de ingresos totales
-    public void actualizarInfoSala() {
-        double ingresos = estrenos.getIngresoSala();
-
-        String mensaje = String.format("<html><h2>Ingresos de Estrenos</h2>"
-                + "Ingresos de la sala: $%.2f</html>", ingresos);
-
-        txtFieldIngresosEstrenos.setText(mensaje);
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.

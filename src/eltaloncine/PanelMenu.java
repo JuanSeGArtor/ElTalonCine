@@ -3,37 +3,12 @@ import javax.swing.JOptionPane;
 
 public class PanelMenu extends javax.swing.JFrame {
 
+    ElTalonCine elTalonCine;
     ElTalonCine estrenos;
     ElTalonCine clasicos;
     
     public PanelMenu() {
         initComponents();
-        
-        estrenos = new ElTalonCine();
-        clasicos = new ElTalonCine();
-    
-        estrenos.setAforo(100);
-        estrenos.setEntrada(25000);
-    
-        clasicos.setAforo(80);
-        clasicos.setEntrada(20000);
-    }
-    
-    // Método para actualizar la información de los ingresos totales en la vista del menú
-    public void actualizarInfoSala() {
-        double ingresosEstrenos = estrenos.getIngresoSala();
-        double ingresosClasicos = clasicos.getIngresoSala();
-        double totalIngresos = ingresosEstrenos + ingresosClasicos;
-
-        txtFieldEstreno.setText(""); // Limpia el campo de texto de estrenos
-        txtFieldClasico.setText(""); // Limpia el campo de texto de clásicos
-
-        String mensaje = String.format("<html><h2>Ingresos Totales</h2>"
-                + "Ingresos de Estrenos: $%.2f<br>"
-                + "Ingresos de Clásicos: $%.2f<br>"
-                + "Total de Ingresos: $%.2f</html>", ingresosEstrenos, ingresosClasicos, totalIngresos);
-
-        txtFieldIngresosTotales.setText(mensaje);
     }
 
     /**

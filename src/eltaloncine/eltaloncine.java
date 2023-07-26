@@ -44,15 +44,6 @@ public class ElTalonCine extends JFrame {
     private void mostrarVista(String vista) {
         CardLayout cardLayout = (CardLayout) panelPrincipal.getLayout();
         cardLayout.show(panelPrincipal, vista);
-
-        // Actualizar la información de la sala de cine en cada vista
-        if (vista.equals("menu")) {
-            panelMenu.actualizarInfoSala();
-        } else if (vista.equals("estrenos")) {
-            panelEstrenos.actualizarInfoSala();
-        } else if (vista.equals("clasicos")) {
-            panelClasicos.actualizarInfoSala();
-        }
     }
     
     
@@ -121,5 +112,13 @@ public class ElTalonCine extends JFrame {
     
     public void venderEntrada() {
         sillasOcupadas ++;
+    }
+    
+   
+    public static void main(String[] args) {
+        /* Crear y mostrar la ventana principal del cine */
+        ElTalonCine elTalonCine = new ElTalonCine();
+        
+        elTalonCine.setVisible(true);
     }
 }

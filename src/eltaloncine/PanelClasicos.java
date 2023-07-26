@@ -21,16 +21,6 @@ public class PanelClasicos extends javax.swing.JFrame {
         clasicos.setAforo(100);
         clasicos.setEntrada(25000);
     }
-    
-    // Método para actualizar la información de ingresos totales
-    public void actualizarInfoSala() {
-        double ingresos = clasicos.getIngresoSala();
-
-        String mensaje = String.format("<html><h2>Ingresos de Estrenos</h2>"
-                + "Ingresos de la sala: $%.2f</html>", ingresos);
-
-        txtFieldIngresosClasicos.setText(mensaje);
-    }
 
     /**
      * This method is called from within the constructor to initialize the form.
