@@ -1,14 +1,6 @@
 package eltaloncine;
 
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import java.awt.CardLayout;
-
-public class ElTalonCine extends JFrame {
-    private JPanel panelPrincipal;
-    private PanelMenu panelMenu;
-    private PanelEstrenos panelEstrenos;
-    private PanelClasicos panelClasicos;
+public class ElTalonCine {
 
     private int aforo;
     private int sillasOcupadas;
@@ -21,29 +13,6 @@ public class ElTalonCine extends JFrame {
         sillasOcupadas = 0;
         tituloPelicula = "";
         precioEntrada = 5000;
-
-        // Inicializar las vistas
-        panelMenu = new PanelMenu();
-        panelEstrenos = new PanelEstrenos();
-        panelClasicos = new PanelClasicos();
-
-        // Crear el panel principal que utilizará un CardLayout para mostrar las vistas
-        panelPrincipal = new JPanel(new CardLayout());
-        panelPrincipal.add(panelMenu, "menu");
-        panelPrincipal.add(panelEstrenos, "estrenos");
-        panelPrincipal.add(panelClasicos, "clasicos");
-
-        // Mostrar la vista del menú al inicio
-        mostrarVista("menu");
-
-        // Agregar el panel principal a la ventana
-        getContentPane().add(panelPrincipal);
-    }
-
-    // Método para mostrar una vista específica
-    private void mostrarVista(String vista) {
-        CardLayout cardLayout = (CardLayout) panelPrincipal.getLayout();
-        cardLayout.show(panelPrincipal, vista);
     }
     
     
@@ -112,13 +81,5 @@ public class ElTalonCine extends JFrame {
     
     public void venderEntrada() {
         sillasOcupadas ++;
-    }
-    
-   
-    public static void main(String[] args) {
-        /* Crear y mostrar la ventana principal del cine */
-        ElTalonCine elTalonCine = new ElTalonCine();
-        
-        elTalonCine.setVisible(true);
     }
 }

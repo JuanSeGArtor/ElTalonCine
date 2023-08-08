@@ -31,43 +31,39 @@ public class PanelClasicos extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        menu = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        txtFieldClasico = new javax.swing.JTextField();
-        jButton6 = new javax.swing.JButton();
+        txtFieldIngresosTotales = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
         jButton8 = new javax.swing.JButton();
         jButton9 = new javax.swing.JButton();
-        jButton10 = new javax.swing.JButton();
         jButton11 = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        txtFieldIngresosClasicos = new javax.swing.JLabel();
+        jButton10 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        txtFieldClasico = new javax.swing.JTextField();
+        sideBar2 = new javax.swing.JPanel();
+        btnVistaEstrenos2 = new javax.swing.JButton();
+        btnVistaClasicos2 = new javax.swing.JButton();
+        btnVistaMenu2 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(255, 255, 204));
-        jPanel1.setPreferredSize(new java.awt.Dimension(1320, 760));
+        menu.setBackground(new java.awt.Color(255, 255, 204));
+        menu.setPreferredSize(new java.awt.Dimension(1320, 1400));
 
         jLabel1.setFont(new java.awt.Font("Bodoni MT", 1, 96)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("PELÍCULAS");
+        jLabel1.setText("EL TALON");
 
-        txtFieldClasico.setEditable(false);
-        txtFieldClasico.setBackground(new java.awt.Color(204, 204, 204));
-        txtFieldClasico.setFont(new java.awt.Font("Bodoni MT", 0, 24)); // NOI18N
+        txtFieldIngresosTotales.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        txtFieldIngresosTotales.setEnabled(false);
 
-        jButton6.setBackground(new java.awt.Color(51, 0, 0));
-        jButton6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton6.setForeground(new java.awt.Color(255, 255, 255));
-        jButton6.setText("NUEVA");
-        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClasicoCambiarActionPerformed(evt);
-            }
-        });
+        jLabel3.setFont(new java.awt.Font("Bodoni MT", 3, 48)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(102, 0, 0));
+        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        jLabel3.setText("CLÁSICOS");
 
         jButton8.setBackground(new java.awt.Color(51, 0, 0));
         jButton8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -77,7 +73,7 @@ public class PanelClasicos extends javax.swing.JFrame {
         jButton8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton8.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClasicoVenderActionPerformed(evt);
+                jButton8btnClasicoVenderActionPerformed(evt);
             }
         });
 
@@ -88,18 +84,7 @@ public class PanelClasicos extends javax.swing.JFrame {
         jButton9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClasicoOcupacionActionPerformed(evt);
-            }
-        });
-
-        jButton10.setBackground(new java.awt.Color(51, 0, 0));
-        jButton10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jButton10.setForeground(new java.awt.Color(255, 255, 255));
-        jButton10.setText("VACIAR");
-        jButton10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClasicoVaciarActionPerformed(evt);
+                jButton9btnClasicoOcupacionActionPerformed(evt);
             }
         });
 
@@ -110,102 +95,153 @@ public class PanelClasicos extends javax.swing.JFrame {
         jButton11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton11.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnClasicoIngresosActionPerformed(evt);
+                jButton11btnClasicoIngresosActionPerformed(evt);
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Bodoni MT", 3, 48)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(102, 0, 0));
-        jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel3.setText("CLÁSICOS");
-
-        jButton1.setBackground(new java.awt.Color(153, 0, 0));
-        jButton1.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("<- ESTRENOS");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        jButton10.setBackground(new java.awt.Color(51, 0, 0));
+        jButton10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton10.setForeground(new java.awt.Color(255, 255, 255));
+        jButton10.setText("VACIAR");
+        jButton10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton10.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVistaEstrenosActionPerformed(evt);
+                jButton10btnClasicoVaciarActionPerformed(evt);
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(153, 0, 0));
-        jButton2.setFont(new java.awt.Font("Segoe UI", 3, 14)); // NOI18N
-        jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("MENÚ");
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButton6.setBackground(new java.awt.Color(51, 0, 0));
+        jButton6.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        jButton6.setForeground(new java.awt.Color(255, 255, 255));
+        jButton6.setText("NUEVA");
+        jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVistaMenuActionPerformed(evt);
+                jButton6btnClasicoCambiarActionPerformed(evt);
             }
         });
 
-        txtFieldIngresosClasicos.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        txtFieldIngresosClasicos.setEnabled(false);
+        txtFieldClasico.setEditable(false);
+        txtFieldClasico.setBackground(new java.awt.Color(204, 204, 204));
+        txtFieldClasico.setFont(new java.awt.Font("Bodoni MT", 0, 24)); // NOI18N
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(210, 210, 210)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(txtFieldClasico, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                            .addGap(121, 121, 121)
-                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(txtFieldIngresosClasicos, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE)
-                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                                    .addComponent(jButton11, javax.swing.GroupLayout.DEFAULT_SIZE, 400, Short.MAX_VALUE))))))
-                                .addGap(190, 190, 190)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(298, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout menuLayout = new javax.swing.GroupLayout(menu);
+        menu.setLayout(menuLayout);
+        menuLayout.setHorizontalGroup(
+            menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menuLayout.createSequentialGroup()
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(menuLayout.createSequentialGroup()
                 .addContainerGap()
+                .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtFieldIngresosTotales, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(menuLayout.createSequentialGroup()
+                        .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 500, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(menuLayout.createSequentialGroup()
+                                .addGap(109, 109, 109)
+                                .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(menuLayout.createSequentialGroup()
+                                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 400, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtFieldClasico, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(190, 190, 190)
+                        .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        menuLayout.setVerticalGroup(
+            menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(menuLayout.createSequentialGroup()
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(74, 74, 74)
+                .addGap(91, 91, 91)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtFieldClasico, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(52, 52, 52)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtFieldClasico, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(51, 51, 51)
+                .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton10, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(98, 98, 98)
+                .addGap(104, 104, 104)
                 .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(txtFieldIngresosClasicos, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 82, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(249, 249, 249)
+                .addComponent(txtFieldIngresosTotales, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(17, Short.MAX_VALUE))
+        );
+
+        sideBar2.setBackground(new java.awt.Color(255, 255, 153));
+        sideBar2.setPreferredSize(new java.awt.Dimension(320, 1400));
+
+        btnVistaEstrenos2.setBackground(new java.awt.Color(102, 0, 0));
+        btnVistaEstrenos2.setFont(new java.awt.Font("Segoe UI", 2, 36)); // NOI18N
+        btnVistaEstrenos2.setForeground(new java.awt.Color(255, 255, 255));
+        btnVistaEstrenos2.setText("ESTRENOS");
+        btnVistaEstrenos2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVistaEstrenos2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVistaEstrenos2(evt);
+            }
+        });
+
+        btnVistaClasicos2.setBackground(new java.awt.Color(102, 0, 0));
+        btnVistaClasicos2.setFont(new java.awt.Font("Segoe UI", 2, 36)); // NOI18N
+        btnVistaClasicos2.setForeground(new java.awt.Color(255, 255, 255));
+        btnVistaClasicos2.setText("CLÁSICOS");
+        btnVistaClasicos2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVistaClasicos2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVistaClasicos2(evt);
+            }
+        });
+
+        btnVistaMenu2.setBackground(new java.awt.Color(102, 0, 0));
+        btnVistaMenu2.setFont(new java.awt.Font("Segoe UI", 2, 36)); // NOI18N
+        btnVistaMenu2.setForeground(new java.awt.Color(255, 255, 255));
+        btnVistaMenu2.setText("MENÚ");
+        btnVistaMenu2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVistaMenu2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVistaMenu2(evt);
+            }
+        });
+
+        jLabel6.setBackground(new java.awt.Color(102, 0, 0));
+        jLabel6.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(102, 0, 0));
+        jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel6.setText("SALAS");
+
+        javax.swing.GroupLayout sideBar2Layout = new javax.swing.GroupLayout(sideBar2);
+        sideBar2.setLayout(sideBar2Layout);
+        sideBar2Layout.setHorizontalGroup(
+            sideBar2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnVistaEstrenos2, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
+            .addComponent(btnVistaClasicos2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(sideBar2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnVistaMenu2, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
                 .addContainerGap())
+        );
+        sideBar2Layout.setVerticalGroup(
+            sideBar2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sideBar2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(btnVistaMenu2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(126, 126, 126)
+                .addComponent(jLabel6)
+                .addGap(44, 44, 44)
+                .addComponent(btnVistaEstrenos2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnVistaClasicos2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -213,75 +249,104 @@ public class PanelClasicos extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 1314, Short.MAX_VALUE))
+                .addGap(9, 9, 9)
+                .addComponent(sideBar2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, 1022, Short.MAX_VALUE)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(menu, javax.swing.GroupLayout.DEFAULT_SIZE, 930, Short.MAX_VALUE)
+                    .addComponent(sideBar2, javax.swing.GroupLayout.DEFAULT_SIZE, 930, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnClasicoCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClasicoCambiarActionPerformed
-        // TODO add your handling code here:
-        String pelicula;
+    private void btnVistaEstrenos2(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVistaEstrenos2
+        int res = JOptionPane.showConfirmDialog(null, "¿Desea ir a la vista de Estrenos?");
 
-        pelicula = JOptionPane.showInputDialog(null, "Ingrese el nombre de la película");
-
-        txtFieldClasico.setText(pelicula);
-    }//GEN-LAST:event_btnClasicoCambiarActionPerformed
-
-    private void btnClasicoVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClasicoVenderActionPerformed
-        // TODO add your handling code here:
-        clasicos.venderEntrada();
-    }//GEN-LAST:event_btnClasicoVenderActionPerformed
-
-    private void btnClasicoOcupacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClasicoOcupacionActionPerformed
-        // TODO add your handling code here:
-        int ocupacion = clasicos.getSillasLibres();
-
-        JOptionPane.showMessageDialog(null, "La cantidad de sillas ocupadas es de: " + ocupacion);
-    }//GEN-LAST:event_btnClasicoOcupacionActionPerformed
-
-    private void btnClasicoVaciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClasicoVaciarActionPerformed
-        // TODO add your handling code here:
-        clasicos.vaciarSala();
-
-        txtFieldClasico.setText("");
-    }//GEN-LAST:event_btnClasicoVaciarActionPerformed
-
-    private void btnClasicoIngresosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClasicoIngresosActionPerformed
-        // TODO add your handling code here:
-        double ingresos = clasicos.getIngresoSala();
-
-        JOptionPane.showMessageDialog(null, "Los ingresos de la sala son de: $" + ingresos);
-    }//GEN-LAST:event_btnClasicoIngresosActionPerformed
-
-    private void btnVistaEstrenosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVistaEstrenosActionPerformed
-        // Para inicializar otro JFrame que tengas previamente creado como una Clase....
-        int res = JOptionPane.showConfirmDialog(null, "¿Desea ir a la vista de clásicos?");
-        
         if(res == 0){
             this.setVisible(false);
-        
+
             PanelEstrenos m = new PanelEstrenos();
             m.setVisible(true);
-        }    
-    }//GEN-LAST:event_btnVistaEstrenosActionPerformed
+        }
+    }//GEN-LAST:event_btnVistaEstrenos2
 
-    private void btnVistaMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVistaMenuActionPerformed
-        // Para inicializar otro JFrame que tengas previamente creado como una Clase....
-        int res = JOptionPane.showConfirmDialog(null, "¿Desea ir a la vista de clásicos?");
+    private void btnVistaClasicos2(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVistaClasicos2
+
+    }//GEN-LAST:event_btnVistaClasicos2
+
+    private void btnVistaMenu2(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVistaMenu2
+        int res = JOptionPane.showConfirmDialog(null, "¿Desea ir al Menú Principal?");
         
         if(res == 0){
             this.setVisible(false);
         
-            PanelEstrenos m = new PanelEstrenos();
-            m.setVisible(true);    
+            PanelClasicos m = new PanelClasicos();
+            m.setVisible(true);
         }
-    }//GEN-LAST:event_btnVistaMenuActionPerformed
+    }//GEN-LAST:event_btnVistaMenu2
+
+    private void jButton8btnClasicoVenderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8btnClasicoVenderActionPerformed
+        // TODO add your handling code here:
+        if(clasicos.getTituloPelicula().isEmpty()) {
+            JOptionPane.showMessageDialog(null, "Debe ingresar el nombre de la película primero");
+        } else {
+            clasicos.venderEntrada();
+        }
+    }//GEN-LAST:event_jButton8btnClasicoVenderActionPerformed
+
+    private void jButton9btnClasicoOcupacionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9btnClasicoOcupacionActionPerformed
+        // TODO add your handling code here:
+        if (!clasicos.getTituloPelicula().isEmpty()) {
+            int ocupacion = clasicos.getSillasOcupadas();
+            JOptionPane.showMessageDialog(null, "La cantidad de sillas ocupadas es de: " + ocupacion);
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe ingresar el nombre de la película primero.");
+        }
+    }//GEN-LAST:event_jButton9btnClasicoOcupacionActionPerformed
+
+    private void jButton11btnClasicoIngresosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11btnClasicoIngresosActionPerformed
+        // TODO add your handling code here:
+        if (!clasicos.getTituloPelicula().isEmpty()) {
+            double ingresos = clasicos.getIngresoSala();
+
+            // Formatear el mensaje para mostrar los ingresos con dos decimales y el símbolo de dólar
+            String mensaje = String.format("Los ingresos de la sala son de: $%.2f", ingresos);
+
+            // Mostrar el mensaje formateado en un cuadro de diálogo
+            JOptionPane.showMessageDialog(null, mensaje);
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe ingresar el nombre de la película primero.");
+        }
+    }//GEN-LAST:event_jButton11btnClasicoIngresosActionPerformed
+
+    private void jButton10btnClasicoVaciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10btnClasicoVaciarActionPerformed
+        // TODO add your handling code here:
+        if (!clasicos.getTituloPelicula().isEmpty()) {
+            clasicos.vaciarSala();
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe ingresar el nombre de la película primero.");
+        }
+    }//GEN-LAST:event_jButton10btnClasicoVaciarActionPerformed
+
+    private void jButton6btnClasicoCambiarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6btnClasicoCambiarActionPerformed
+        // TODO add your handling code here:
+        String pelicula = JOptionPane.showInputDialog(null, "Ingrese el nombre de la película");
+
+        if (pelicula != null && !pelicula.isEmpty()) {
+            clasicos.setPelicula(pelicula);
+            txtFieldClasico.setText(pelicula);
+        } else {
+            JOptionPane.showMessageDialog(null, "Debe ingresar un nombre de película válido.");
+        }
+    }//GEN-LAST:event_jButton6btnClasicoCambiarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -320,17 +385,20 @@ public class PanelClasicos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton btnVistaClasicos2;
+    private javax.swing.JButton btnVistaEstrenos2;
+    private javax.swing.JButton btnVistaMenu2;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JPanel menu;
+    private javax.swing.JPanel sideBar2;
     private javax.swing.JTextField txtFieldClasico;
-    private javax.swing.JLabel txtFieldIngresosClasicos;
+    private javax.swing.JLabel txtFieldIngresosTotales;
     // End of variables declaration//GEN-END:variables
 }
