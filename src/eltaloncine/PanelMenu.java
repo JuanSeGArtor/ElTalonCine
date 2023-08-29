@@ -218,25 +218,17 @@ public class PanelMenu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVistaEstrenos(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVistaEstrenos
-        int res = JOptionPane.showConfirmDialog(null, "¿Desea ir a la vista de Estrenos?");
-        
-        if(res == 0){
-            this.setVisible(false);
-        
-            PanelEstrenos m = new PanelEstrenos();
-            m.setVisible(true);
-        }
+        this.setVisible(false);
+
+        PanelEstrenos m = new PanelEstrenos();
+        m.setVisible(true);
     }//GEN-LAST:event_btnVistaEstrenos
 
     private void btnVistaClasicos(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVistaClasicos
-        int res = JOptionPane.showConfirmDialog(null, "¿Desea ir a la vista de Clásicos?");
-        
-        if(res == 0){
-            this.setVisible(false);
-        
-            PanelClasicos m = new PanelClasicos();
-            m.setVisible(true);
-        }
+        this.setVisible(false);
+
+        PanelClasicos m = new PanelClasicos();
+        m.setVisible(true);
     }//GEN-LAST:event_btnVistaClasicos
 
     private void btnVistaMenu(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVistaMenu
