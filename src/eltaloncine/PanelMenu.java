@@ -68,7 +68,7 @@ public class PanelMenu extends javax.swing.JFrame {
         jButton1.setBackground(new java.awt.Color(102, 0, 0));
         jButton1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
-        jButton1.setText("Registrar la Fecha");
+        jButton1.setText("Ingrese la Fecha");
         jButton1.setToolTipText("");
         jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -80,9 +80,10 @@ public class PanelMenu extends javax.swing.JFrame {
         txtFieldFechaIngresosTotales.setEditable(false);
         txtFieldFechaIngresosTotales.setFont(new java.awt.Font("Bodoni MT", 1, 18)); // NOI18N
         txtFieldFechaIngresosTotales.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        txtFieldFechaIngresosTotales.setText("dd/mm/aaaa");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
-        jLabel2.setText("Fecha Ingresos Totales");
+        jLabel2.setText("Consulte por Fecha");
 
         javax.swing.GroupLayout menuLayout = new javax.swing.GroupLayout(menu);
         menu.setLayout(menuLayout);

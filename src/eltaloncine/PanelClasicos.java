@@ -288,7 +288,7 @@ public class PanelClasicos extends javax.swing.JFrame {
         if(res == 0){
             this.setVisible(false);
         
-            PanelClasicos m = new PanelClasicos();
+            PanelMenu m = new PanelMenu();
             m.setVisible(true);
         }
     }//GEN-LAST:event_btnVistaMenu2
