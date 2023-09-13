@@ -1,20 +1,9 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package eltaloncine;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author user
- */
 public class ClientesVista extends javax.swing.JFrame {
 
-    /**
-     * Creates new form VistaDatos
-     */
     public ClientesVista() {
         initComponents();
     }
@@ -172,7 +161,7 @@ public class ClientesVista extends javax.swing.JFrame {
             mensaje += "Ingrese el correo, por favor\n";
         }
         if(guardar) {
-            ClientesControlador control = new ClientesControlador();
+            ClientesControlador control = ClientesControlador.getInstance();
             control.insertar(nombre, telefono, email);
             txtNombre.setText("");
             txtTelefono.setText("");
@@ -182,7 +171,7 @@ public class ClientesVista extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGuardar
 
     private void btnCancelar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelar
-        this.setVisible(false);
+        this.dispose();
     }//GEN-LAST:event_btnCancelar
 
     /**
