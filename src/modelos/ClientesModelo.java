@@ -1,4 +1,4 @@
-package eltaloncine;
+package modelos;
 
 public class ClientesModelo{
     private String nombre;

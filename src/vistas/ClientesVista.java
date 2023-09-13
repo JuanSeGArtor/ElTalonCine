@@ -1,5 +1,6 @@
-package eltaloncine;
+package vistas;
 
+import controladores.ClientesControlador;
 import javax.swing.JOptionPane;
 
 public class ClientesVista extends javax.swing.JFrame {

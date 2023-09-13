@@ -1,5 +1,7 @@
-package eltaloncine;
+package controladores;
 
+import modelos.ClientesModelo;
+import eltaloncine.Conectar;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
