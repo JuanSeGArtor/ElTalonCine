@@ -36,7 +36,7 @@ public class ClientesEliminar extends javax.swing.JFrame {
         jLabel23 = new javax.swing.JLabel();
         jButton9 = new javax.swing.JButton();
         jButton10 = new javax.swing.JButton();
-        txtId = new javax.swing.JTextField();
+        spnId = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -81,8 +81,8 @@ public class ClientesEliminar extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(clienteId)
-                        .addGap(65, 65, 65)
-                        .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(66, 66, 66)
+                        .addComponent(spnId, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(94, Short.MAX_VALUE))
             .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel5Layout.createSequentialGroup()
@@ -104,7 +104,7 @@ public class ClientesEliminar extends javax.swing.JFrame {
                 .addGap(132, 132, 132)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(clienteId)
-                    .addComponent(txtId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(spnId, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton10)
@@ -141,7 +141,7 @@ public class ClientesEliminar extends javax.swing.JFrame {
 
     private void btnAceptar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptar
         try {
-            int clienteId = Integer.parseInt(txtId.getText()); 
+            int clienteId = Integer.parseInt(spnId.getValue().toString());
             ClientesControlador control = ClientesControlador.getInstance();
             control.eliminar(clienteId);
         } catch (NumberFormatException e) {
@@ -192,6 +192,6 @@ public class ClientesEliminar extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel23;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JSeparator jSeparator5;
-    private javax.swing.JTextField txtId;
+    private javax.swing.JSpinner spnId;
     // End of variables declaration//GEN-END:variables
 }
