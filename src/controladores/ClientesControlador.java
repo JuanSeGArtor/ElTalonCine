@@ -49,4 +49,28 @@ public class ClientesControlador {
             JOptionPane.showMessageDialog(null, "Error de conexión:" + e);
         }
     }
+    
+    public void eliminar(int clienteId) {
+        PreparedStatement ps;
+        String sql;
+
+        try {
+            if (con != null) {
+                sql = "DELETE FROM clientes WHERE idCliente = ?";
+                ps = con.prepareStatement(sql);
+                ps.setInt(1, clienteId);
+                int resultado = ps.executeUpdate();
+                if (resultado > 0) {
+                    JOptionPane.showMessageDialog(null, "Cliente eliminado correctamente");
+                } else {
+                    JOptionPane.showMessageDialog(null, "No se encontró el cliente con el ID especificado");
+                }
+            } else {
+                JOptionPane.showMessageDialog(null, "Error de conexión: la conexión es nula");
+            }
+        } catch (SQLException e) {
+            JOptionPane.showMessageDialog(null, "Error de conexión: " + e.getMessage());
+    }
+}
+
 }
