@@ -4,6 +4,8 @@ import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
+import vistas.ClientesCrear;
+import vistas.Funcionarios;
 
 public class PanelMenu extends javax.swing.JFrame {
 
@@ -43,11 +45,12 @@ public class PanelMenu extends javax.swing.JFrame {
 
         menu = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jButton12 = new javax.swing.JButton();
         txtFieldIngresosTotales = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
         txtFieldFechaIngresosTotales = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         sideBar = new javax.swing.JPanel();
         btnVistaEstrenos = new javax.swing.JButton();
         btnVistaClasicos = new javax.swing.JButton();
@@ -69,17 +72,6 @@ public class PanelMenu extends javax.swing.JFrame {
         jLabel1.setForeground(new java.awt.Color(102, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("EL TALON");
-
-        jButton12.setBackground(new java.awt.Color(51, 0, 0));
-        jButton12.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
-        jButton12.setForeground(new java.awt.Color(255, 255, 255));
-        jButton12.setText("INGRESOS TOTALES");
-        jButton12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnIngresosTotalesActionPerformed(evt);
-            }
-        });
 
         txtFieldIngresosTotales.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtFieldIngresosTotales.setEnabled(false);
@@ -104,6 +96,28 @@ public class PanelMenu extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
         jLabel2.setText("Consulte por Fecha");
 
+        jButton2.setBackground(new java.awt.Color(102, 0, 0));
+        jButton2.setFont(new java.awt.Font("Segoe UI", 3, 30)); // NOI18N
+        jButton2.setForeground(new java.awt.Color(255, 255, 255));
+        jButton2.setText("CLIENTES");
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClientes(evt);
+            }
+        });
+
+        jButton3.setBackground(new java.awt.Color(102, 0, 0));
+        jButton3.setFont(new java.awt.Font("Segoe UI", 3, 30)); // NOI18N
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setText("FUNCIONARIOS");
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnFuncionarios(evt);
+            }
+        });
+
         javax.swing.GroupLayout menuLayout = new javax.swing.GroupLayout(menu);
         menu.setLayout(menuLayout);
         menuLayout.setHorizontalGroup(
@@ -120,12 +134,14 @@ public class PanelMenu extends javax.swing.JFrame {
                         .addGap(119, 119, 119)
                         .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
-                            .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, menuLayout.createSequentialGroup()
-                                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 299, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(txtFieldFechaIngresosTotales, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE))))))
+                            .addGroup(menuLayout.createSequentialGroup()
+                                .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 300, Short.MAX_VALUE)
+                                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(100, 100, 100)
+                                .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtFieldFechaIngresosTotales, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE))))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         menuLayout.setVerticalGroup(
@@ -138,11 +154,13 @@ public class PanelMenu extends javax.swing.JFrame {
                 .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtFieldFechaIngresosTotales, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(120, 120, 120)
-                .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(167, 167, 167)
+                .addGap(143, 143, 143)
+                .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(367, 367, 367)
                 .addComponent(txtFieldIngresosTotales, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(641, Short.MAX_VALUE))
+                .addContainerGap(415, Short.MAX_VALUE))
         );
 
         sideBar.setBackground(new java.awt.Color(255, 255, 153));
@@ -254,16 +272,6 @@ public class PanelMenu extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnVistaMenu
 
-    private void btnIngresosTotalesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIngresosTotalesActionPerformed
-        // TODO add your handling code here:
-        double ingresosEstrenos = estrenos.getIngresoSala();
-        double ingresosClasicos = clasicos.getIngresoSala();
-
-        double totalIngresos = ingresosEstrenos + ingresosClasicos;
-
-        JOptionPane.showMessageDialog(null, "Los ingresos de ambas salas son de: $" + totalIngresos);
-    }//GEN-LAST:event_btnIngresosTotalesActionPerformed
-
     private void btnFechaIngresosTotales(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFechaIngresosTotales
         // TODO add your handling code here:
         dialogFecha.setVisible(true);
@@ -274,6 +282,18 @@ public class PanelMenu extends javax.swing.JFrame {
             txtFieldFechaIngresosTotales.setText(null);
         }
     }//GEN-LAST:event_btnFechaIngresosTotales
+
+    private void btnClientes(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientes
+        // TODO add your handling code here:
+        ClientesCrear m = new ClientesCrear();
+        m.setVisible(true);
+    }//GEN-LAST:event_btnClientes
+
+    private void btnFuncionarios(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFuncionarios
+        // TODO add your handling code here:
+        Funcionarios m = new Funcionarios();
+        m.setVisible(true);
+    }//GEN-LAST:event_btnFuncionarios
 
     /**
      * @param args the command line arguments
@@ -291,7 +311,8 @@ public class PanelMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnVistaEstrenos;
     private javax.swing.JButton btnVistaMenu;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton12;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
