@@ -4,7 +4,7 @@ import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
-import vistas.ClientesCrear;
+import vistas.Clientes;
 import vistas.Funcionarios;
 
 public class PanelMenu extends javax.swing.JFrame {
@@ -285,7 +285,7 @@ public class PanelMenu extends javax.swing.JFrame {
 
     private void btnClientes(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClientes
         // TODO add your handling code here:
-        ClientesCrear m = new ClientesCrear();
+        Clientes m = new Clientes();
         m.setVisible(true);
     }//GEN-LAST:event_btnClientes
 

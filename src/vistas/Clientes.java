@@ -4,10 +4,10 @@
  */
 package vistas;
 
+import eltaloncine.Conectar;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import eltaloncine.Conectar;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -15,11 +15,12 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author user
  */
-public class Funcionarios extends javax.swing.JFrame {
+public class Clientes extends javax.swing.JFrame {
+
     DefaultTableModel tabla;
     Conectar con;
-        
-    public Funcionarios() {
+    
+    public Clientes() {
         initComponents();
         configurarTabla();
         con = new Conectar();
@@ -27,7 +28,7 @@ public class Funcionarios extends javax.swing.JFrame {
     }
     
     public void configurarTabla() {
-        String titulosTabla[] = {"IdFuncionario", "Nombre", "Cargo", "Salario"};
+        String titulosTabla[] = {"idCliente", "Nombre", "Telefono", "Email"};
         
         tabla = new DefaultTableModel(null, titulosTabla);
         
@@ -37,18 +38,18 @@ public class Funcionarios extends javax.swing.JFrame {
     private void cargarDatos() {
         try {
             Connection conexion = con.getConexion();
-            String consulta = "SELECT idFuncionario, nombre, cargo, salario FROM funcionarios";
+            String consulta = "SELECT idCliente, nombre, telefono, email FROM clientes";
             Statement st = conexion.createStatement();
             ResultSet rs = st.executeQuery(consulta);
 
             while (rs.next()) {
-                int idFuncionario = rs.getInt("idFuncionario");
+                int idCliente = rs.getInt("idCliente");
                 String nombre = rs.getString("nombre");
-                String cargo = rs.getString("cargo");
-                double salario = rs.getDouble("salario");
+                String telefono = rs.getString("telefono");
+                String email = rs.getString("email");
 
                 // Crea un array con los datos y agrega una fila a la tabla
-                Object[] fila = {idFuncionario, nombre, cargo, salario};
+                Object[] fila = {idCliente, nombre, telefono, email};
                 tabla.addRow(fila);
             }
 
@@ -69,24 +70,32 @@ public class Funcionarios extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jButton4 = new javax.swing.JButton();
         txtFila = new javax.swing.JTextField();
         txtColumna = new javax.swing.JTextField();
         txtValor = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
         jButton5 = new javax.swing.JButton();
         txtNuevoValor = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
+        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jButton4 = new javax.swing.JButton();
         jSeparator1 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+
+        txtColumna.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtColumnaActionPerformed(evt);
+            }
+        });
+
+        txtValor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -101,55 +110,11 @@ public class Funcionarios extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jButton1.setText("Agregar fila");
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarFila(evt);
-            }
-        });
-
-        jButton2.setText("Agregar fila con datos");
-        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnAgregarFilaDatos(evt);
-            }
-        });
-
-        jButton3.setText("Eliminar fila");
-        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnEliminarFila(evt);
-            }
-        });
-
-        jLabel1.setText("Fila");
-
-        jLabel2.setText("Columna");
-
-        jButton4.setText("Obtener valor");
-        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnObtenerValor(evt);
-            }
-        });
-
-        txtColumna.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtColumnaActionPerformed(evt);
-            }
-        });
-
-        txtValor.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
         jButton5.setText("Cambiar valor");
         jButton5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCambiarValor(evt);
+                jButton5btnCambiarValor(evt);
             }
         });
 
@@ -159,57 +124,99 @@ public class Funcionarios extends javax.swing.JFrame {
             }
         });
 
+        jButton1.setText("Agregar fila");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1btnAgregarFila(evt);
+            }
+        });
+
         jButton6.setText("CERRAR");
         jButton6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCerrar(evt);
+                jButton6btnCerrar(evt);
+            }
+        });
+
+        jButton2.setText("Agregar fila con datos");
+        jButton2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2btnAgregarFilaDatos(evt);
+            }
+        });
+
+        jButton3.setText("Eliminar fila");
+        jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3btnEliminarFila(evt);
             }
         });
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
-        jLabel3.setText("FUNCIONARIOS");
+        jLabel3.setText("CLIENTES");
+
+        jLabel1.setText("Fila");
+
+        jLabel2.setText("Columna");
+
+        jButton4.setText("Obtener valor");
+        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4btnObtenerValor(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtNuevoValor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
-                        .addComponent(txtValor, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(layout.createSequentialGroup()
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(txtFila))
-                            .addGap(70, 70, 70)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(jButton2)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jButton3))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel2)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(146, 146, 146)
-                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                        .addComponent(txtColumna, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(0, 58, Short.MAX_VALUE))))))
-                .addGap(16, 16, 16))
             .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
                 .addComponent(jLabel3)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(15, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGap(1, 1, 1)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jButton1)
+                                .addComponent(txtFila, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                    .addGap(120, 120, 120)
+                                    .addComponent(jButton2)
+                                    .addGap(427, 427, 427))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addGap(70, 70, 70)
+                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel2)
+                                        .addGroup(layout.createSequentialGroup()
+                                            .addGap(146, 146, 146)
+                                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jButton5)
+                                                .addComponent(jButton6, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                        .addComponent(txtColumna, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGap(261, 261, 261))))
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(txtNuevoValor, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtValor, javax.swing.GroupLayout.PREFERRED_SIZE, 251, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(203, 203, 203)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jButton3)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 770, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(15, 15, 15))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,7 +232,7 @@ public class Funcionarios extends javax.swing.JFrame {
                     .addComponent(jButton2)
                     .addComponent(jButton3)
                     .addComponent(jButton1))
-                .addGap(18, 18, 18)
+                .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(jLabel2))
@@ -241,7 +248,7 @@ public class Funcionarios extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNuevoValor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jButton6)
                 .addContainerGap())
         );
@@ -249,32 +256,54 @@ public class Funcionarios extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAgregarFila(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarFila
-        tabla = (DefaultTableModel)jTable1.getModel();
-        String filaVacia[] = new String [4];
-        tabla.addRow(filaVacia);
-    }//GEN-LAST:event_btnAgregarFila
-
-    private void btnAgregarFilaDatos(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarFilaDatos
-        tabla = (DefaultTableModel)jTable1.getModel();
-        String filaDatos[] = {"1024463376", "Cristina", "Hurtado", "19/11/2001"};
-        tabla.addRow(filaDatos);
-    }//GEN-LAST:event_btnAgregarFilaDatos
-
-    private void btnEliminarFila(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarFila
-        tabla = (DefaultTableModel) jTable1.getModel();
-        int selectedRow = jTable1.getSelectedRow();
-        tabla.removeRow(selectedRow);
-    }//GEN-LAST:event_btnEliminarFila
-
     private void txtColumnaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtColumnaActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtColumnaActionPerformed
 
-    private void btnObtenerValor(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObtenerValor
+    private void jButton5btnCambiarValor(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5btnCambiarValor
+        tabla = (DefaultTableModel) jTable1.getModel();
+
+        int fila, columna;
+        fila = Integer.parseInt(txtFila.getText());
+        columna = Integer.parseInt(txtColumna.getText());
+
+        String nuevoValor = txtNuevoValor.getText();
+        txtValor.setText(nuevoValor);
+
+        tabla.setValueAt(nuevoValor, fila, columna);
+    }//GEN-LAST:event_jButton5btnCambiarValor
+
+    private void txtNuevoValor(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNuevoValor
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNuevoValor
+
+    private void jButton1btnAgregarFila(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1btnAgregarFila
+        tabla = (DefaultTableModel)jTable1.getModel();
+        String filaVacia[] = new String [4];
+        tabla.addRow(filaVacia);
+    }//GEN-LAST:event_jButton1btnAgregarFila
+
+    private void jButton6btnCerrar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6btnCerrar
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jButton6btnCerrar
+
+    private void jButton2btnAgregarFilaDatos(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2btnAgregarFilaDatos
+        tabla = (DefaultTableModel)jTable1.getModel();
+        String filaDatos[] = {"1024463376", "Cristina", "Hurtado", "19/11/2001"};
+        tabla.addRow(filaDatos);
+    }//GEN-LAST:event_jButton2btnAgregarFilaDatos
+
+    private void jButton3btnEliminarFila(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3btnEliminarFila
+        tabla = (DefaultTableModel) jTable1.getModel();
+        int selectedRow = jTable1.getSelectedRow();
+        tabla.removeRow(selectedRow);
+    }//GEN-LAST:event_jButton3btnEliminarFila
+
+    private void jButton4btnObtenerValor(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4btnObtenerValor
         int fila, columna;
         String valor;
-        
+
         try {
             fila = Integer.parseInt(txtFila.getText());
             columna = Integer.parseInt(txtColumna.getText());
@@ -284,29 +313,7 @@ public class Funcionarios extends javax.swing.JFrame {
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, "Verifique que haya ingresado valores correctos para fila y/o columna");
         }
-    }//GEN-LAST:event_btnObtenerValor
-
-    private void btnCambiarValor(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCambiarValor
-        tabla = (DefaultTableModel) jTable1.getModel();
-        
-        int fila, columna;
-        fila = Integer.parseInt(txtFila.getText());
-        columna = Integer.parseInt(txtColumna.getText());
-        
-        String nuevoValor = txtNuevoValor.getText();
-        txtValor.setText(nuevoValor);
-        
-        tabla.setValueAt(nuevoValor, fila, columna);
-    }//GEN-LAST:event_btnCambiarValor
-
-    private void txtNuevoValor(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNuevoValor
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNuevoValor
-
-    private void btnCerrar(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCerrar
-        // TODO add your handling code here:
-        this.dispose();
-    }//GEN-LAST:event_btnCerrar
+    }//GEN-LAST:event_jButton4btnObtenerValor
 
     /**
      * @param args the command line arguments
@@ -325,22 +332,20 @@ public class Funcionarios extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Funcionarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Funcionarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Funcionarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Funcionarios.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
             public void run() {
-                new Funcionarios().setVisible(true);
+                new Clientes().setVisible(true);
             }
         });
     }
