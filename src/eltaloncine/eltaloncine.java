@@ -15,7 +15,6 @@ public class ElTalonCine {
         precioEntrada = 5000;
     }
     
-    
     //METODOS SET
     public void setAforo(int afo) {
         aforo = afo;
