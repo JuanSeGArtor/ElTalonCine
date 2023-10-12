@@ -4,6 +4,10 @@
  */
 package vistas;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import eltaloncine.Conectar;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -13,20 +17,47 @@ import javax.swing.table.DefaultTableModel;
  */
 public class Funcionarios extends javax.swing.JFrame {
     DefaultTableModel tabla;
-    /**
-     * Creates new form tabla
-     */
+    Conectar con;
+        
     public Funcionarios() {
         initComponents();
         configurarTabla();
+        con = new Conectar();
+        cargarDatos();
     }
     
     public void configurarTabla() {
-        String titulosTabla[] = {"Nombre", "Cargo", "Salario"};
+        String titulosTabla[] = {"IdFuncionario", "Nombre", "Cargo", "Salario"};
         
         tabla = new DefaultTableModel(null, titulosTabla);
         
         jTable1.setModel(tabla);
+    }
+    
+    private void cargarDatos() {
+        try {
+            Connection conexion = con.getConexion();
+            String consulta = "SELECT idFuncionario, nombre, cargo, salario FROM funcionarios";
+            Statement st = conexion.createStatement();
+            ResultSet rs = st.executeQuery(consulta);
+
+            while (rs.next()) {
+                String idFuncionario = rs.getString("idFuncionario");
+                String nombre = rs.getString("nombre");
+                String cargo = rs.getString("cargo");
+                double salario = rs.getDouble("salario");
+
+                // Crea un array con los datos y agrega una fila a la tabla
+                Object[] fila = {idFuncionario, nombre, cargo, salario};
+                tabla.addRow(fila);
+            }
+
+            rs.close();
+            st.close();
+            conexion.close();
+        } catch (Exception e) {
+            System.err.println("Error: " + e.getMessage());
+        }
     }
     
     /**
@@ -220,7 +251,7 @@ public class Funcionarios extends javax.swing.JFrame {
 
     private void btnAgregarFila(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarFila
         tabla = (DefaultTableModel)jTable1.getModel();
-        String filaVacia[] = new String [3];
+        String filaVacia[] = new String [4];
         tabla.addRow(filaVacia);
     }//GEN-LAST:event_btnAgregarFila
 
