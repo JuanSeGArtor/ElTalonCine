@@ -17,22 +17,7 @@ public class PanelMenu extends javax.swing.JFrame {
     
     public PanelMenu() {
         initComponents();
-        dialogFecha = new DialogFecha(null, true);        
-        
-        FondoPanel fondo = new FondoPanel();
-        menu.add(fondo);
-        menu.setOpaque(false); 
-    }
-    
-    class FondoPanel extends JPanel {
-        private Image imagen;
-        
-        @Override
-        public void paintComponent(Graphics g) {
-            super.paintComponent(g);
-            imagen = new ImageIcon(getClass().getResource("../imagenes/uno.jpg")).getImage();
-            g.drawImage(imagen, 0, 0, getWidth(), getHeight(), this);
-        }
+        dialogFecha = new DialogFecha(null, true);
     }
 
     /**

@@ -1,11 +1,21 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
 package vistas;
 
-import controladores.ClientesControlador;
+import controladores.FuncionariosControlador;
 import javax.swing.JOptionPane;
+/**
+ *
+ * @author user
+ */
+public class FuncionariosCrear extends javax.swing.JFrame {
 
-public class ClientesCrear extends javax.swing.JFrame {
-
-    public ClientesCrear() {
+    /**
+     * Creates new form FuncionariosCrear
+     */
+    public FuncionariosCrear() {
         initComponents();
     }
 
@@ -28,8 +38,8 @@ public class ClientesCrear extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        txtEmail = new javax.swing.JTextField();
-        txtTelefono = new javax.swing.JTextField();
+        txtCargo = new javax.swing.JTextField();
+        spnSalario = new javax.swing.JSpinner();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -39,13 +49,13 @@ public class ClientesCrear extends javax.swing.JFrame {
         jLabel1.setText("Nombre:");
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        jLabel2.setText("Télefono:");
+        jLabel2.setText("Cargo:");
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 36)); // NOI18N
         jLabel3.setText("INGRESO DE DATOS");
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 18)); // NOI18N
-        jLabel4.setText("Cliente");
+        jLabel4.setText("Funcionario");
 
         jButton1.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         jButton1.setText("Guardar");
@@ -66,7 +76,10 @@ public class ClientesCrear extends javax.swing.JFrame {
         });
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
-        jLabel5.setText("Email:");
+        jLabel5.setText("Salario:");
+
+        spnSalario.setModel(new javax.swing.SpinnerNumberModel(1000000.0d, 100000.0d, 7000000.0d, 100000.0d));
+        spnSalario.setEditor(new javax.swing.JSpinner.NumberEditor(spnSalario, ""));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -95,8 +108,8 @@ public class ClientesCrear extends javax.swing.JFrame {
                         .addGap(51, 51, 51)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtNombre, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                            .addComponent(txtEmail)
-                            .addComponent(txtTelefono))))
+                            .addComponent(txtCargo)
+                            .addComponent(spnSalario))))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -115,16 +128,18 @@ public class ClientesCrear extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel5)
-                            .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(37, 37, 37)
+                        .addGap(90, 90, 90)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton1)
                             .addComponent(jButton2)))
-                    .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtCargo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(spnSalario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))))
                 .addGap(23, 23, 23))
         );
 
@@ -148,28 +163,35 @@ public class ClientesCrear extends javax.swing.JFrame {
         Boolean guardar = true;
         String mensaje = "";
         String nombre = txtNombre.getText();
-        String telefono = txtTelefono.getText();
-        String email = txtEmail.getText();
+        String cargo = txtCargo.getText();
+        double salario = 0.0;
+
+        try {
+            salario = (double) spnSalario.getValue();
+        } catch (NumberFormatException e) {
+            guardar = false;
+            mensaje += "Ingrese un salario válido, por favor\n";
+        }
         
         if(nombre.length() == 0) {
             guardar = false;
             mensaje += "Ingrese el nombre, por favor\n";
         }
-        if(telefono.length() < 10) {
+        if(cargo.length() < 5) {
             guardar = false;
-            mensaje += "Ingrese un télefono válido, por favor\n";
+            mensaje += "Ingrese un cargo válido, por favor\n";
         }
-        if(email.length() == 0) {
+        if(salario == 0) {
             guardar = false;
-            mensaje += "Ingrese el correo, por favor\n";
+            mensaje += "Ingrese un salario válido, por favor\n";
         }
         if(guardar) {
-            ClientesControlador control = ClientesControlador.getInstance();
-            control.insertar(nombre, telefono, email);
+            FuncionariosControlador control = FuncionariosControlador.getInstance();
+            control.insertar(nombre, cargo, salario);
             txtNombre.setText("");
-            txtTelefono.setText("");
-            txtEmail.setText("");
-        } 
+            txtCargo.setText("");
+            spnSalario.setValue(1000000);
+        }
         else JOptionPane.showMessageDialog(null, mensaje);
     }//GEN-LAST:event_btnGuardar
 
@@ -194,27 +216,20 @@ public class ClientesCrear extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ClientesCrear.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FuncionariosCrear.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ClientesCrear.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FuncionariosCrear.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ClientesCrear.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FuncionariosCrear.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ClientesCrear.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FuncionariosCrear.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ClientesCrear().setVisible(true);
+                new FuncionariosCrear().setVisible(true);
             }
         });
     }
@@ -229,8 +244,8 @@ public class ClientesCrear extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField txtEmail;
+    private javax.swing.JSpinner spnSalario;
+    private javax.swing.JTextField txtCargo;
     private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtTelefono;
     // End of variables declaration//GEN-END:variables
 }

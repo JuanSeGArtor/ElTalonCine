@@ -40,6 +40,8 @@ public class ClientesEliminar extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel5.setBackground(new java.awt.Color(204, 255, 255));
+
         clienteId.setFont(new java.awt.Font("Segoe UI", 2, 12)); // NOI18N
         clienteId.setText("ID del Cliente:");
 
