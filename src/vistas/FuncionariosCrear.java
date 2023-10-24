@@ -181,10 +181,6 @@ public class FuncionariosCrear extends javax.swing.JFrame {
             guardar = false;
             mensaje += "Ingrese un cargo válido, por favor\n";
         }
-        if(salario == 0) {
-            guardar = false;
-            mensaje += "Ingrese un salario válido, por favor\n";
-        }
         if(guardar) {
             FuncionariosControlador control = FuncionariosControlador.getInstance();
             control.insertar(nombre, cargo, salario);
