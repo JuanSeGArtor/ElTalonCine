@@ -4,6 +4,7 @@
  */
 package eltaloncine;
 import javax.swing.JOptionPane;
+import vistas.Peliculas;
 
 /**
  *
@@ -46,6 +47,7 @@ public class PanelClasicos extends javax.swing.JFrame {
         btnVistaClasicos2 = new javax.swing.JButton();
         btnVistaMenu2 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        btnVistaPeliculas2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -218,6 +220,17 @@ public class PanelClasicos extends javax.swing.JFrame {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("SALAS");
 
+        btnVistaPeliculas2.setBackground(new java.awt.Color(102, 0, 0));
+        btnVistaPeliculas2.setFont(new java.awt.Font("Segoe UI", 2, 36)); // NOI18N
+        btnVistaPeliculas2.setForeground(new java.awt.Color(255, 255, 255));
+        btnVistaPeliculas2.setText("PELÍCULAS");
+        btnVistaPeliculas2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVistaPeliculas2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVistaPeliculas2(evt);
+            }
+        });
+
         javax.swing.GroupLayout sideBar2Layout = new javax.swing.GroupLayout(sideBar2);
         sideBar2.setLayout(sideBar2Layout);
         sideBar2Layout.setHorizontalGroup(
@@ -229,6 +242,7 @@ public class PanelClasicos extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(btnVistaMenu2, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
                 .addContainerGap())
+            .addComponent(btnVistaPeliculas2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         sideBar2Layout.setVerticalGroup(
             sideBar2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -241,6 +255,8 @@ public class PanelClasicos extends javax.swing.JFrame {
                 .addComponent(btnVistaEstrenos2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnVistaClasicos2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnVistaPeliculas2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -340,6 +356,13 @@ public class PanelClasicos extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_jButton6btnClasicoCambiarActionPerformed
 
+    private void btnVistaPeliculas2(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVistaPeliculas2
+        //this.setVisible(false);
+
+        Peliculas m = new Peliculas();
+        m.setVisible(true);
+    }//GEN-LAST:event_btnVistaPeliculas2
+
     /**
      * @param args the command line arguments
      */
@@ -380,6 +403,7 @@ public class PanelClasicos extends javax.swing.JFrame {
     private javax.swing.JButton btnVistaClasicos2;
     private javax.swing.JButton btnVistaEstrenos2;
     private javax.swing.JButton btnVistaMenu2;
+    private javax.swing.JButton btnVistaPeliculas2;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton6;

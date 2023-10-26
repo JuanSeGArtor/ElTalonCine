@@ -4,6 +4,7 @@
  */
 package eltaloncine;
 import javax.swing.JOptionPane;
+import vistas.Peliculas;
 
 /**
  *
@@ -45,6 +46,7 @@ public class PanelEstrenos extends javax.swing.JFrame {
         btnVistaClasicos2 = new javax.swing.JButton();
         btnVistaMenu2 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
+        btnVistaClasicos3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -225,6 +227,17 @@ public class PanelEstrenos extends javax.swing.JFrame {
         jLabel6.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel6.setText("SALAS");
 
+        btnVistaClasicos3.setBackground(new java.awt.Color(102, 0, 0));
+        btnVistaClasicos3.setFont(new java.awt.Font("Segoe UI", 2, 36)); // NOI18N
+        btnVistaClasicos3.setForeground(new java.awt.Color(255, 255, 255));
+        btnVistaClasicos3.setText("PELÍCULAS");
+        btnVistaClasicos3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnVistaClasicos3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnVistaClasicos3(evt);
+            }
+        });
+
         javax.swing.GroupLayout sideBar2Layout = new javax.swing.GroupLayout(sideBar2);
         sideBar2.setLayout(sideBar2Layout);
         sideBar2Layout.setHorizontalGroup(
@@ -236,6 +249,7 @@ public class PanelEstrenos extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(btnVistaMenu2, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
                 .addContainerGap())
+            .addComponent(btnVistaClasicos3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         sideBar2Layout.setVerticalGroup(
             sideBar2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -248,6 +262,8 @@ public class PanelEstrenos extends javax.swing.JFrame {
                 .addComponent(btnVistaEstrenos2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnVistaClasicos2, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(btnVistaClasicos3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -351,6 +367,13 @@ public class PanelEstrenos extends javax.swing.JFrame {
         m.setVisible(true);
     }//GEN-LAST:event_btnVistaMenu2
 
+    private void btnVistaClasicos3(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVistaClasicos3
+        //this.setVisible(false);
+
+        Peliculas m = new Peliculas();
+        m.setVisible(true);
+    }//GEN-LAST:event_btnVistaClasicos3
+
     /**
      * @param args the command line arguments
      */
@@ -387,14 +410,9 @@ public class PanelEstrenos extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnVistaClasicos;
-    private javax.swing.JButton btnVistaClasicos1;
     private javax.swing.JButton btnVistaClasicos2;
-    private javax.swing.JButton btnVistaEstrenos;
-    private javax.swing.JButton btnVistaEstrenos1;
+    private javax.swing.JButton btnVistaClasicos3;
     private javax.swing.JButton btnVistaEstrenos2;
-    private javax.swing.JButton btnVistaMenu;
-    private javax.swing.JButton btnVistaMenu1;
     private javax.swing.JButton btnVistaMenu2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
@@ -403,12 +421,8 @@ public class PanelEstrenos extends javax.swing.JFrame {
     private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel menu;
-    private javax.swing.JPanel sideBar;
-    private javax.swing.JPanel sideBar1;
     private javax.swing.JPanel sideBar2;
     private javax.swing.JTextField txtFieldEstreno;
     private javax.swing.JLabel txtFieldIngresosTotales;

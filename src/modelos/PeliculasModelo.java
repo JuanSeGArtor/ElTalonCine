@@ -13,7 +13,8 @@ public class PeliculasModelo {
     private String titulo;
     private String genero;
     private int duracion;
-    private String tipoPelicula; 
+    private String tipoPelicula;
+    private int anio;
 
     public int getIdPelicula() {
         return idPelicula;
@@ -61,7 +62,5 @@ public class PeliculasModelo {
 
     public void setAnio(int anio) {
         this.anio = anio;
-    }
-    private int anio;
-    
+    }    
 }
