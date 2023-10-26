@@ -16,7 +16,7 @@ public class Conectar {
             Class.forName("com.mysql.cj.jdbc.Driver");
             con = (Connection) DriverManager.getConnection(URL, USUARIO, CLAVE);
         } catch (Exception e) {
-            System.err.println("Error: " + e.getMessage());
+            System.err.println("Error: " + e.getMessage() + ". No olvide agregar ConnectorJ en libraries");
         }
         
         return con;
