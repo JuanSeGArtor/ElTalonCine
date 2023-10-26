@@ -28,12 +28,12 @@ public class PeliculasCrear extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        txtTipoPelicula = new javax.swing.JTextField();
-        txtGenero = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
         jLabel7 = new javax.swing.JLabel();
         spnAnio = new javax.swing.JSpinner();
         spnDuracion = new javax.swing.JSpinner();
+        comboTipoPelicula = new javax.swing.JComboBox<>();
+        comboGenero = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -82,6 +82,10 @@ public class PeliculasCrear extends javax.swing.JFrame {
 
         spnDuracion.setModel(new javax.swing.SpinnerNumberModel(120, 10, 400, 1));
 
+        comboTipoPelicula.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Estreno", "Clásico" }));
+
+        comboGenero.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Acción", "Aventura", "Animación", "Ciencia Ficción", "Comedia", "Crimen", "Drama", "Fantasía", "Misterio", "Musicales", "Romance", "Suspenso", "Terror", "Documental", "Histórica", "Biografía", "Western", "Deportes", "Guerra", "Cine negro", "Superhéroes" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -101,9 +105,9 @@ public class PeliculasCrear extends javax.swing.JFrame {
                                     .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING))
                                 .addGap(58, 58, 58)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(txtTitulo, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE)
-                                    .addComponent(txtTipoPelicula)
-                                    .addComponent(txtGenero))
+                                    .addComponent(comboTipoPelicula, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtTitulo)
+                                    .addComponent(comboGenero, 0, 180, Short.MAX_VALUE))
                                 .addGap(113, 113, 113)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -131,20 +135,19 @@ public class PeliculasCrear extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
                             .addComponent(txtTitulo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel2)
+                            .addComponent(comboGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtTipoPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))
-                        .addGap(78, 78, 78))
+                            .addComponent(comboTipoPelicula, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
@@ -153,11 +156,11 @@ public class PeliculasCrear extends javax.swing.JFrame {
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel7)
                             .addComponent(spnAnio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(47, 47, 47)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jButton1)
-                            .addComponent(jButton2))
-                        .addContainerGap())))
+                            .addComponent(jButton2))))
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -182,16 +185,16 @@ public class PeliculasCrear extends javax.swing.JFrame {
     Boolean guardar = true;
     String mensaje = "";
     String titulo = txtTitulo.getText();
-    String genero = txtGenero.getText();
+    String genero = comboGenero.getSelectedItem().toString();
     int duracion = 0;
-    String tipoPelicula = txtTipoPelicula.getText();
+    String tipoPelicula = comboTipoPelicula.getSelectedItem().toString();
     int anio = 0;
-    
+
     try {
         duracion = (int) spnDuracion.getValue();
-    }  catch (NumberFormatException e) {
+    } catch (NumberFormatException e) {
         guardar = false;
-        mensaje += "Ingrese una duracion válida, por favor\n";
+        mensaje += "Ingrese una duración válida, por favor\n";
     }
 
     try {
@@ -200,14 +203,14 @@ public class PeliculasCrear extends javax.swing.JFrame {
         guardar = false;
         mensaje += "Ingrese un año válido, por favor\n";
     }
-    
+
     if (titulo.length() == 0) {
         guardar = false;
         mensaje += "Ingrese el título de la película, por favor\n";
     }
     if (genero.length() == 0) {
         guardar = false;
-        mensaje += "Ingrese el género de la película, por favor\n";
+        mensaje += "Seleccione un género de la película, por favor\n";
     }
     if (duracion <= 0) {
         guardar = false;
@@ -215,20 +218,20 @@ public class PeliculasCrear extends javax.swing.JFrame {
     }
     if (tipoPelicula.length() == 0) {
         guardar = false;
-        mensaje += "Ingrese el tipo de película, por favor\n";
+        mensaje += "Seleccione un tipo de película, por favor\n";
     }
     if (anio <= 0) {
         guardar = false;
         mensaje += "Ingrese un año válido, por favor\n";
     }
-    
+
     if (guardar) {
         PeliculasControlador control = PeliculasControlador.getInstance();
         control.insertar(titulo, genero, duracion, tipoPelicula, anio);
         txtTitulo.setText("");
-        txtGenero.setText("");
+        comboGenero.setSelectedIndex(0);
         spnDuracion.setValue(120);
-        txtTipoPelicula.setText("");
+        comboTipoPelicula.setSelectedIndex(0);
         spnAnio.setValue(2000);
     } else {
         JOptionPane.showMessageDialog(null, mensaje);
@@ -290,6 +293,8 @@ public class PeliculasCrear extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> comboGenero;
+    private javax.swing.JComboBox<String> comboTipoPelicula;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
@@ -303,8 +308,6 @@ public class PeliculasCrear extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSpinner spnAnio;
     private javax.swing.JSpinner spnDuracion;
-    private javax.swing.JTextField txtGenero;
-    private javax.swing.JTextField txtTipoPelicula;
     private javax.swing.JTextField txtTitulo;
     // End of variables declaration//GEN-END:variables
 }
