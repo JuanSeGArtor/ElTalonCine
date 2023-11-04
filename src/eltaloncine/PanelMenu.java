@@ -40,7 +40,6 @@ public class PanelMenu extends javax.swing.JFrame {
         sideBar = new javax.swing.JPanel();
         btnVistaEstrenos = new javax.swing.JButton();
         btnVistaClasicos = new javax.swing.JButton();
-        btnVistaMenu = new javax.swing.JButton();
         jLabel4 = new javax.swing.JLabel();
         btnVistaClasicos3 = new javax.swing.JButton();
 
@@ -49,7 +48,6 @@ public class PanelMenu extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 204));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setForeground(new java.awt.Color(153, 102, 0));
-        setPreferredSize(new java.awt.Dimension(1320, 1400));
         setSize(new java.awt.Dimension(1320, 1400));
 
         menu.setBackground(new java.awt.Color(255, 255, 204));
@@ -58,7 +56,7 @@ public class PanelMenu extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Bodoni MT", 1, 96)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(102, 0, 0));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("EL TALON");
+        jLabel1.setText("EL TALON CINE");
 
         txtFieldIngresosTotales.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         txtFieldIngresosTotales.setEnabled(false);
@@ -110,15 +108,12 @@ public class PanelMenu extends javax.swing.JFrame {
         menuLayout.setHorizontalGroup(
             menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(menuLayout.createSequentialGroup()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 720, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 302, Short.MAX_VALUE))
-            .addGroup(menuLayout.createSequentialGroup()
                 .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(menuLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(txtFieldIngresosTotales, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(menuLayout.createSequentialGroup()
-                        .addGap(119, 119, 119)
+                        .addGap(115, 115, 115)
                         .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel2)
                             .addGroup(menuLayout.createSequentialGroup()
@@ -128,8 +123,9 @@ public class PanelMenu extends javax.swing.JFrame {
                                 .addGap(100, 100, 100)
                                 .addGroup(menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(txtFieldFechaIngresosTotales, javax.swing.GroupLayout.PREFERRED_SIZE, 300, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE))))))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 308, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 900, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(122, Short.MAX_VALUE))
         );
         menuLayout.setVerticalGroup(
             menuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -175,17 +171,6 @@ public class PanelMenu extends javax.swing.JFrame {
             }
         });
 
-        btnVistaMenu.setBackground(new java.awt.Color(102, 0, 0));
-        btnVistaMenu.setFont(new java.awt.Font("Segoe UI", 2, 36)); // NOI18N
-        btnVistaMenu.setForeground(new java.awt.Color(255, 255, 255));
-        btnVistaMenu.setText("MENÚ");
-        btnVistaMenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btnVistaMenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnVistaMenu(evt);
-            }
-        });
-
         jLabel4.setBackground(new java.awt.Color(102, 0, 0));
         jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 48)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(102, 0, 0));
@@ -210,18 +195,12 @@ public class PanelMenu extends javax.swing.JFrame {
             .addComponent(btnVistaEstrenos, javax.swing.GroupLayout.DEFAULT_SIZE, 320, Short.MAX_VALUE)
             .addComponent(btnVistaClasicos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(sideBarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnVistaMenu, javax.swing.GroupLayout.DEFAULT_SIZE, 308, Short.MAX_VALUE)
-                .addContainerGap())
             .addComponent(btnVistaClasicos3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         sideBarLayout.setVerticalGroup(
             sideBarLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, sideBarLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(btnVistaMenu, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(126, 126, 126)
+                .addGap(100, 100, 100)
                 .addComponent(jLabel4)
                 .addGap(44, 44, 44)
                 .addComponent(btnVistaEstrenos, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -229,7 +208,7 @@ public class PanelMenu extends javax.swing.JFrame {
                 .addComponent(btnVistaClasicos, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnVistaClasicos3, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(838, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -268,10 +247,6 @@ public class PanelMenu extends javax.swing.JFrame {
         PanelClasicos m = new PanelClasicos();
         m.setVisible(true);
     }//GEN-LAST:event_btnVistaClasicos
-
-    private void btnVistaMenu(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVistaMenu
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnVistaMenu
 
     private void btnFechaIngresosTotales(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnFechaIngresosTotales
         // TODO add your handling code here:
@@ -318,7 +293,6 @@ public class PanelMenu extends javax.swing.JFrame {
     private javax.swing.JButton btnVistaClasicos;
     private javax.swing.JButton btnVistaClasicos3;
     private javax.swing.JButton btnVistaEstrenos;
-    private javax.swing.JButton btnVistaMenu;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;

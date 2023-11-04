@@ -192,7 +192,7 @@ public class PanelClasicos extends javax.swing.JFrame {
             }
         });
 
-        btnVistaClasicos2.setBackground(new java.awt.Color(102, 0, 0));
+        btnVistaClasicos2.setBackground(new java.awt.Color(193, 33, 33));
         btnVistaClasicos2.setFont(new java.awt.Font("Segoe UI", 2, 36)); // NOI18N
         btnVistaClasicos2.setForeground(new java.awt.Color(255, 255, 255));
         btnVistaClasicos2.setText("CLÁSICOS");
@@ -337,8 +337,16 @@ public class PanelClasicos extends javax.swing.JFrame {
 
     private void jButton10btnClasicoVaciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton10btnClasicoVaciarActionPerformed
         // TODO add your handling code here:
+        // Verificar sí el título de la película no está vacío
         if (!clasicos.getTituloPelicula().isEmpty()) {
-            clasicos.vaciarSala();
+            // Mostrar un cuadro de diálogo de confirmación
+            int option = JOptionPane.showConfirmDialog(null, "¿Seguro que desea vaciar la sala de la película?", "Confirmación", JOptionPane.YES_NO_OPTION);
+            
+            if (option == JOptionPane.YES_OPTION) {
+                // Vacía la sala de la película sí ha clickado que si
+                clasicos.vaciarSala();
+                txtFieldClasico.setText("");
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Debe ingresar el nombre de la película primero.");
         }

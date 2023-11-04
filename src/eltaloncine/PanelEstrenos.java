@@ -188,7 +188,7 @@ public class PanelEstrenos extends javax.swing.JFrame {
         sideBar2.setBackground(new java.awt.Color(255, 255, 153));
         sideBar2.setPreferredSize(new java.awt.Dimension(320, 1400));
 
-        btnVistaEstrenos2.setBackground(new java.awt.Color(102, 0, 0));
+        btnVistaEstrenos2.setBackground(new java.awt.Color(193, 33, 33));
         btnVistaEstrenos2.setFont(new java.awt.Font("Segoe UI", 2, 36)); // NOI18N
         btnVistaEstrenos2.setForeground(new java.awt.Color(255, 255, 255));
         btnVistaEstrenos2.setText("ESTRENOS");
@@ -311,8 +311,16 @@ public class PanelEstrenos extends javax.swing.JFrame {
 
     private void jButton3btnEstrenoVaciarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3btnEstrenoVaciarActionPerformed
         // TODO add your handling code here:
+        // Verificar sí el título de la película no está vacío
         if (!estrenos.getTituloPelicula().isEmpty()) {
-            estrenos.vaciarSala();
+            // Mostrar un cuadro de diálogo de confirmación
+            int option = JOptionPane.showConfirmDialog(null, "¿Seguro que desea vaciar la sala de la película?", "Confirmación", JOptionPane.YES_NO_OPTION);
+
+            if (option == JOptionPane.YES_OPTION) {
+                // Vacía la sala de la película sí ha clickado que si
+                estrenos.vaciarSala();
+                txtFieldEstreno.setText("");
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Debe ingresar el nombre de la película primero.");
         }
